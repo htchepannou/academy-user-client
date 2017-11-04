@@ -1,0 +1,19 @@
+language: java
+dist: trusty
+sudo: required
+
+jdk:
+  - oraclejdk8
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+
+install: true
+
+script:
+  - mvn -q deploy --settings settings.xml
+
+
+notifications:
+  email:
+  - herve.tchepannou@gmail.com
